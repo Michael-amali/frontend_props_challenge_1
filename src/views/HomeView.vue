@@ -1,18 +1,30 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <span @click="goToRegisterPage">Start Registration</span>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+<script setup lang="ts">
+import { useRouter } from "vue-router";
 
-export default defineComponent({
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
-});
+const router = useRouter();
+
+const goToRegisterPage = () => {
+  router.push("/register");
+};
 </script>
+
+<style lang="scss" scoped>
+.home {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  span {
+    margin-top: 50px;
+    font-size: 40px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+</style>
